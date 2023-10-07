@@ -1,0 +1,213 @@
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\SquareList.dll.config
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\SquareList.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\SquareList.pdb
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\csc.exe
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\csc.exe.config
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\csc.rsp
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\csi.exe
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\csi.rsp
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.AppContext.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\vbc.exe
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\vbc.exe.config
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\vbc.rsp
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\VBCSCompiler.exe
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Antlr3.Runtime.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\EntityFramework.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\EntityFramework.SqlServer.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Newtonsoft.Json.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Helpers.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Mvc.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Optimization.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Razor.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.Razor.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\WebGrease.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\EntityFramework.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\EntityFramework.SqlServer.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Helpers.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Mvc.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Optimization.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.Razor.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Web.WebPages.Razor.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Newtonsoft.Json.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Antlr3.Runtime.pdb
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\obj\Debug\SquareList.csprojAssemblyReference.cache
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\obj\Debug\SquareList.csproj.CoreCompileInputs.cache
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\obj\Debug\SquareList.csproj.CopyComplete
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\obj\Debug\SquareList.dll
+C:\Users\Léo\Desktop\SquareList\SquareList\SquareList\obj\Debug\SquareList.pdb
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\SquareList.dll.config
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\SquareList.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\SquareList.pdb
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\csc.exe
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\csc.exe.config
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\csc.rsp
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\csi.exe
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\csi.rsp
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.AppContext.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\vbc.exe
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\vbc.exe.config
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\vbc.rsp
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\VBCSCompiler.exe
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Antlr3.Runtime.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\EntityFramework.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\EntityFramework.SqlServer.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Newtonsoft.Json.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Helpers.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Mvc.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Optimization.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Razor.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.Razor.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\WebGrease.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\EntityFramework.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\EntityFramework.SqlServer.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Helpers.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Mvc.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Optimization.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.Razor.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Web.WebPages.Razor.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Newtonsoft.Json.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Antlr3.Runtime.pdb
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\obj\Debug\SquareList.csprojAssemblyReference.cache
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\obj\Debug\SquareList.csproj.CoreCompileInputs.cache
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\obj\Debug\SquareList.csproj.CopyComplete
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\obj\Debug\SquareList.dll
+C:\Users\Léo\Desktop\Square Nutri\SquareList\SquareList\obj\Debug\SquareList.pdb
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\SquareList.dll.config
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\SquareList.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\SquareList.pdb
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\csc.exe
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\csc.exe.config
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\csc.rsp
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\csi.exe
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\csi.rsp
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.AppContext.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\vbc.exe
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\vbc.exe.config
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\vbc.rsp
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\VBCSCompiler.exe
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Antlr3.Runtime.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\EntityFramework.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\EntityFramework.SqlServer.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Newtonsoft.Json.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Helpers.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Mvc.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Optimization.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Razor.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.Razor.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\WebGrease.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\EntityFramework.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\EntityFramework.SqlServer.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Helpers.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Mvc.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Optimization.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.Razor.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Web.WebPages.Razor.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Newtonsoft.Json.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Antlr3.Runtime.pdb
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Microsoft.AspNet.TelemetryCorrelation.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.Helpers.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.Optimization.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.Razor.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\bin\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\obj\Debug\SquareList.csproj.AssemblyReference.cache
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\obj\Debug\SquareList.csproj.CoreCompileInputs.cache
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\obj\Debug\SquareList.csproj.CopyComplete
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\obj\Debug\SquareList.dll
+C:\Users\Leo\Desktop\Square Nutri\Sistema\SquareList\obj\Debug\SquareList.pdb

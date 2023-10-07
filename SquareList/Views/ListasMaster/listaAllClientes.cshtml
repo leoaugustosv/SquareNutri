@@ -1,0 +1,110 @@
+﻿
+
+@model IEnumerable<SquareList.Models.Cliente>
+
+@{
+    /**/
+
+    ViewBag.Title = "ListarTodosOsClientes";
+}
+
+<style>
+
+
+    .modal-xl {
+        width: 94%;
+        max-width: 1700px;
+    }
+
+    #allClientes .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-color: #ccc;
+    }
+
+        #allClientes .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        #allClientes .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #bbb;
+            color: #493F3F;
+            background-color: #4CAF50;
+        }
+
+        #allClientes .tg .tg-baqh {
+            text-align: center;
+            vertical-align: top
+        }
+
+        #allClientes .tg .tg-0lax {
+            text-align: left;
+            vertical-align: top
+        }
+
+
+
+    .table .thead-light th {
+        background-color: #71c55d;
+    }
+
+
+</style>
+
+<div id="allClientes">
+    <table class="table table-striped table-hover table-responsive-md" align="center">
+        <thead class="thead-light">
+            <tr>
+                <th class="tg-0lax text-center">Cliente</th>
+                <th class="tg-0lax text-center">Nome Completo</th>
+                <th class="tg-0lax text-center">Sexo</th>
+                <th class="tg-0lax text-center">CPF</th>
+                <th class="tg-0lax text-center">Telefone</th>
+                <th class="tg-0lax text-center">Endereço</th>
+                <th class="tg-0lax text-center">Complemento</th>
+                <th class="tg-baqh text-center">Email</th>
+                <th class="tg-baqh text-center">Plano</th>
+            </tr>
+
+
+            @foreach (var variavel in Model)
+            {
+
+                <tr>
+                    <td class="tg-baqh">@variavel.codCli</td>
+                    <td class="tg-0lax">@variavel.nomeCli @variavel.sobrenomeCli</td>
+                    <td class="tg-0lax">@variavel.sexoCli</td>
+                    <td class="tg-0lax">@variavel.cpfCli</td>
+                    <td class="tg-0lax">@variavel.telCli</td>
+                    <td class="tg-0lax">@variavel.endCli</td>
+                    <td class="tg-baqh">@variavel.complCli</td>
+                    <td class="tg-0lax">@variavel.emailCli</td>
+                    <td class="tg-baqh">@variavel.planoCliente</td>
+
+                </tr>
+
+
+            }
+    </table>
+</div>
+<br />
+
+
+

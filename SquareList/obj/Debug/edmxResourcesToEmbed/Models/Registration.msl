@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTCCModelStoreContainer" CdmEntityContainer="dbTCCEntities">
+    <EntitySetMapping Name="tbCliente">
+      <EntityTypeMapping TypeName="dbTCCModel.tbCliente">
+        <MappingFragment StoreEntitySet="tbCliente">
+          <ScalarProperty Name="codCli" ColumnName="codCli" />
+          <ScalarProperty Name="nomeCli" ColumnName="nomeCli" />
+          <ScalarProperty Name="sobrenomeCli" ColumnName="sobrenomeCli" />
+          <ScalarProperty Name="telCli" ColumnName="telCli" />
+          <ScalarProperty Name="cpfCli" ColumnName="cpfCli" />
+          <ScalarProperty Name="sexCli" ColumnName="sexCli" />
+          <ScalarProperty Name="endCli" ColumnName="endCli" />
+          <ScalarProperty Name="complCli" ColumnName="complCli" />
+          <ScalarProperty Name="emailCli" ColumnName="emailCli" />
+          <ScalarProperty Name="senhaCli" ColumnName="senhaCli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

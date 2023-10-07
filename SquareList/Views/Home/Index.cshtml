@@ -1,0 +1,1253 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+
+<!--==========================
+ Hero
+============================-->
+
+
+<section id="hero" class="wow fadeIn">
+
+    <div class="hero-container">
+        <h1>Bem-vindo(a) a Square Nutri</h1>
+        <h2><b>Desperte o atleta em você</b></h2>
+        <a href="#get-started" class="btn-get-started scrollto">Explorar</a>
+    </div>
+
+</section><!-- #hero -->
+<!--==========================
+  Consultas
+============================-->
+
+<section id="get-started" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+        <div class="section-title text-center">
+
+            <h2> Consultas </h2>
+            <p class="separator">Desfrute da praticidade de nosso sistema de consultas online <br><b>Marque sua consulta já!</b></p>
+            <div class="form">
+                <br />
+                @if ((string)Session["nivelLogado"] == "1")
+                {
+                    <div class="text-center"><button type="submit" data-toggle="modal" data-target="#modalConsulta">Marcar Consulta</button></div>
+                }
+                else if ((string)Session["nivelLogado"] == "2")
+                {
+                    <div class="text-center"><button type="submit"> Apenas Para Clientes</button></div>
+                }
+
+
+                else
+                {
+                    <div class="text-center"><button type="submit" data-toggle="modal" data-target="#modalLoginForm">  Marcar Consulta</button></div>
+                }
+                <!--==========================
+                  Modal de Consultas
+                ============================-->
+
+                <div class="modal animated fadeInUp" id="modalConsulta" tabindex="-1" role="dialog" aria-labelledby="consultaModalTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="consultaModalTitle">Nova Consulta</h2>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                            </div>
+                            <div class="modal-body">
+
+                                @using (Html.BeginForm("Index", "Consulta", FormMethod.Post, new { @class = "form", id = "formConsulta", role = "form", autocomplete = "off" }))
+                                {
+                                    <div class="form-group align-to-center">
+                                        <h3>
+                                            <label for="selectNutri">
+                                                Selecione seu nutricionista: <button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                                     data-placement="top" data-animation="true" data-content="Todos os nutricionistas da Square Nutri estão listados com suas respectivas especialidades.<br>Caso sua especialidade não esteja listada, selecione a opção <i>Geral</i>.">
+                                                    <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                                </button>
+                                            </label>
+                                        </h3>
+
+
+                                        @Html.DropDownList("codNutricionista", new List<SelectListItem>
+                                    {
+                                        new SelectListItem{ Text = "Nutricionistas", Disabled = true , Selected = true},
+                                        new SelectListItem{ Text = "-", Disabled = true},
+                                        new SelectListItem{ Text = "Alessandra Brandão - Surf/Tênis", Value = "1" },
+                                        new SelectListItem{ Text = "Bruno Pereira - Artes Marciais/Boxe", Value = "2" },
+                                        new SelectListItem{ Text = "Caio Bürgmann - Geral", Value = "3" },
+                                        new SelectListItem{ Text = "Daniela Souza - Vôlei/Handebol", Value = "4" },
+                                        new SelectListItem{ Text = "Felipe Gomes - Futebol/Basquete", Value = "5" },
+                                        new SelectListItem{ Text = "Heloísa Leite - Natação", Value = "6" },
+                                        new SelectListItem{ Text = "Juliana Campos - Ciclismo", Value = "7" },
+                                        new SelectListItem{ Text = "Mariana Azevedo - Atletismo", Value = "8" }
+                                    }
+                                        , new {@class="form-control", id="selectNutri", required="required"})
+
+
+                                    </div>
+
+                                    <div class="datahoraForm" style="display:none">
+                                        <br><hr><br>
+                                        <div class="form-group">
+
+                                            <h3>
+                                                <label for="uname1">
+                                                    Insira a data e hora desejados: <button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                                            data-placement="top" data-animation="true" data-content="O limite máximo para uma consulta é de um mês a frente. ">
+                                                        <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                                    </button>
+                                                </label>
+                                            </h3><br>
+                                            <h4>Data Selecionada:</h4>
+                                            @Html.Editor("dataConsulta", null, new { htmlAttributes = new { name = "dataConsulta", id = "dataConsulta", @type = "date", min = "@ViewBag.Min", max = "@ViewBag.Max", required = "required" } })
+                                            @Html.ValidationMessage("dataConsulta")
+
+                                            <br><br>
+                                        </div>
+                                        <br><br>
+
+                                        <div class="form-group dataForm">
+                                            <h4>
+                                                <label>
+                                                    Horários Disponíveis: <button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                                  data-placement="top" data-animation="true" data-content="Atendemos de <i>segunda à sexta</i>, das <i>09h até 18h</i>. <br> Com um <b>plano da Square Nutri</b>, a disponibilidade muda para <i>segunda à sábado</i>, das <i>07h até 20h.</i>">
+                                                        <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                                    </button>
+                                                </label>
+                                            </h4>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+
+                                                @Html.RadioButton("horaConsulta", "09h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta09", required = "required" })
+                                                @Html.Label("horaConsulta09", "09h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+
+                                                @Html.RadioButton("horaConsulta", "10h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta10", required = "required" })
+                                                @Html.Label("horaConsulta10", "10h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+
+                                                @Html.RadioButton("horaConsulta", "11h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta11", required = "required" })
+                                                @Html.Label("horaConsulta11", "11h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "13h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta13", required = "required" })
+                                                @Html.Label("horaConsulta13", "13h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "14h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta14", required = "required" })
+                                                @Html.Label("horaConsulta14", "14h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "15h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta15", required = "required" })
+                                                @Html.Label("horaConsulta15", "15h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "16h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta16", required = "required" })
+                                                @Html.Label("horaConsulta16", "16h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "17h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta17", required = "required" })
+                                                @Html.Label("horaConsulta17", "17h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                            <div class="custom-control custom-radio custom-control-inline">
+                                                @Html.RadioButton("horaConsulta", "18h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta18", required = "required" })
+                                                @Html.Label("horaConsulta18", "18h00", new { @class = "custom-control-label hoverGlobal" })
+                                            </div>
+
+                                        </div>
+
+                                        <br><hr><br>
+
+                                        <div class="form-group pagForm">
+                                            <h3>
+                                                <label for="selectPagamento">
+                                                    Como você pretende pagar? <button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                                      data-placement="top" data-animation="true" data-content="Selecione a forma de pagamento da consulta.<br>Caso você possua uma consulta sem custo devido a <b>assinatura de plano</b>,<br>selecione a opção <i>Presencial (Dinheiro)</i> e fale com nossos recepcionistas.">
+                                                        <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                                    </button>
+                                                </label>
+                                            </h3>
+
+
+
+                                            <select class="form-control" id="selectPagamento" required>
+
+                                                <option selected="true" disabled="disabled" value="">Pagamento</option>
+                                                <option disabled="disabled">-</option>
+                                                <option id="pagPresen" value="valueConsulta" onclick="cartaoFalse()">Presencial</option>
+                                                <option id="pagVirt" value="formCartao" onclick="cartaoTrue()">Virtual (Cartão)</option>
+                                            </select>
+
+                                            <script>
+                                                function cartaoFalse() {
+                                                    $(".cartaoPag").attr('required', false);
+                                                }
+                                                function cartaoTrue() {
+
+                                                    $(".cartaoPag").attr('required', true);
+                                                }
+                                            </script>
+
+                                        </div>
+                                    </div>
+
+                                    <input type="submit" id="btnMarcarConsulta" style="display:none">
+
+                                }
+
+                                <div class="form cartao-form" role="form" autocomplete="off" id="formCartao" style="display:none">
+                                    <hr>
+                                    <div class="form-group">
+
+                                        <label for="titulCart">Titular do Cartão</label>
+                                        <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formConsulta" name="titulCart" id="titulCart" placeholder="MARCO L PEIXOTO">
+                                        <div class="invalid-feedback">Por favor insira o nome do titular do cartão.</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="numCart">Número do Cartão</label>
+                                        <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formConsulta" name="numCart" id="cartao-seg" placeholder="5417 6723 6297 6468">
+                                        <div class="invalid-feedback">Por favor insira o número do cartão.</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="codCart">Código de Segurança</label>
+                                        <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formConsulta" name="codCart" id="cod-seg" placeholder="482">
+                                        <div class="invalid-feedback">Por favor insira o código de segurança do cartão.</div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dataCart">Data de Validade</label>
+                                        <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formConsulta" name="dataCart" id="txt-data" placeholder="13/12/2021">
+                                        <div class="invalid-feedback">Por favor insira a data de validade do cartão.</div>
+                                    </div>
+
+                                    <br>
+                                </div>
+
+                                <span style="display:none" id="valueConsulta"> <hr> <h3><b><i>Valor da Consulta:</i></b> R$449,90</h3> </span>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                <label for="btnMarcarConsulta" class="btn btn-success btn-lg" tabindex="0"><i class="fa fa-clipboard-check"></i>  Marcar Consulta</label>
+                            </div>=
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+@if ((string)Session["nivelLogado"] == "1")
+{
+    <!--==========================
+     Modal Dados Cliente
+    ============================-->
+    <section id="sectionMeusDados">
+        <div class="modal animated fadeInUp" id="modalDados" tabindex="-1" role="dialog" aria-labelledby="dadosTitle" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="dadosTitle">Meus Dados:</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        @Html.Action("ListarMeusDados", "Listas")
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else if ((string)Session["nivelLogado"] == "2")
+{
+    <!--==========================
+     Modal Marcar Consulta Master
+    ============================-->
+
+    <section id="sectionConsultaMaster">
+        <div class="modal animated fadeInUp" id="modalConsultaMaster" tabindex="-1" role="dialog" aria-labelledby="consultaMasterModalTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="consultaMasterModalTitle">Área do Funcionário</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                    </div>
+                    <div class="modal-body">
+
+                        @using (Html.BeginForm("MarcarConsultaMaster", "ListasMaster", FormMethod.Post, new { @class = "form", id = "formConsultaMaster", role = "form", autocomplete = "off" }))
+                        {
+
+
+                            <div class="form-group">
+                                <label for="uname1">Código do Cliente:</label>
+                                @Html.TextBox("codCli", null, new { @class = "form-control form-control-lg form-control-border-transition", name = "uname1", id = "uname1", required = "required" })
+                            </div>
+
+                            <div class="selectNutriForm">
+                                <hr>
+                                <div class="form-group">
+                                    <h3>
+                                        <label for="selectNutri">
+                                            Selecione o nutricionista:
+                                        </label>
+                                    </h3>
+
+                                    @Html.DropDownList("codNutricionista", new List<SelectListItem>
+                                {
+                                    new SelectListItem{ Text = "Nutricionistas", Disabled = true , Selected = true},
+                                    new SelectListItem{ Text = "-", Disabled = true},
+                                    new SelectListItem{ Text = "Alessandra Brandão - Surf/Tênis", Value = "1" },
+                                    new SelectListItem{ Text = "Bruno Pereira - Artes Marciais/Boxe", Value = "2" },
+                                    new SelectListItem{ Text = "Caio Bürgmann - Geral", Value = "3" },
+                                    new SelectListItem{ Text = "Daniela Souza - Vôlei/Handebol", Value = "4" },
+                                    new SelectListItem{ Text = "Felipe Gomes - Futebol/Basquete", Value = "5" },
+                                    new SelectListItem{ Text = "Heloísa Leite - Natação", Value = "6" },
+                                    new SelectListItem{ Text = "Juliana Campos - Ciclismo", Value = "7" },
+                                    new SelectListItem{ Text = "Mariana Azevedo - Atletismo", Value = "8" }
+                                }
+                                    , new {@class="form-control", id="selectNutri", required="required"})
+                                </div>
+                            </div>
+
+                            <div class="datahoraForm">
+                                <br><hr><br>
+                                <div class="form-group">
+
+                                    <h3>
+                                        <label for="uname1">
+                                            Insira a data e hora desejados:
+                                        </label>
+                                    </h3><br>
+                                    <h4>Data Selecionada:</h4>
+                                    @Html.Editor("dataConsulta", null, new { htmlAttributes = new { name = "dataConsulta", id = "dataConsulta", @type = "date", min = "@ViewBag.Min", max = "@ViewBag.Max", required = "required" } })
+                                    @Html.ValidationMessage("dataConsulta")
+                                    <br><br>
+                                </div>
+                                <br><br>
+
+                                <div class="form-group dataForm">
+                                    <h4>
+                                        <label>
+                                            Horários Disponíveis:
+                                        </label>
+                                    </h4>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+
+                                        @Html.RadioButton("horaConsulta", "09h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta09", required = "required" })
+                                        @Html.Label("horaConsulta09", "09h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+
+                                        @Html.RadioButton("horaConsulta", "10h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta10", required = "required" })
+                                        @Html.Label("horaConsulta10", "10h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+
+                                        @Html.RadioButton("horaConsulta", "11h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta11", required = "required" })
+                                        @Html.Label("horaConsulta11", "11h00", new { @class = "custom-control-label hoverGlobal" })
+
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "13h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta13", required = "required" })
+                                        @Html.Label("horaConsulta13", "13h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "14h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta14", required = "required" })
+                                        @Html.Label("horaConsulta14", "14h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "15h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta15", required = "required" })
+                                        @Html.Label("horaConsulta15", "15h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "16h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta16", required = "required" })
+                                        @Html.Label("horaConsulta16", "16h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "17h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta17", required = "required" })
+                                        @Html.Label("horaConsulta17", "17h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.RadioButton("horaConsulta", "18h", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "horaConsulta18", required = "required" })
+                                        @Html.Label("horaConsulta18", "18h00", new { @class = "custom-control-label hoverGlobal" })
+                                    </div>
+
+                                </div>
+
+                                <br><hr><br>
+
+                                <div class="form-group pagForm">
+                                    <h3>
+                                        <label for="selectNutri">
+                                            Como o cliente pretende pagar?
+                                        </label>
+                                    </h3>
+
+                                    <select class="form-control" id="selectPagamento">
+
+                                        <option selected disabled="disabled">Pagamento</option>
+                                        <option disabled="disabled">-</option>
+                                        <option id="pagPresen" value="formNull">Presencial</option>
+                                    </select>
+
+                                </div>
+                                <br>
+                                <hr>
+                                <br>
+                                <h3><b><i>Valor da Consulta:</i></b> R$449,90</h3>
+                                <br>
+
+                            </div>
+
+                        }
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-success btn-lg" id="btnRegister">Marcar Consulta</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+}
+
+else
+{
+
+}
+
+
+@if ((string)Session["nivelLogado"] == "1")
+{
+    <!--==========================
+     Modal Listar Minhas Consultas
+    ============================-->
+    <section id="sectionMinhasConsultas">
+        <div id="modalListarMinhasConsultas" class="modal animated fadeInUp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Minhas Consultas</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+
+                        @Html.Action("ListarMinhasConsultas", "Listas")
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+}
+else if ((string)Session["nivelLogado"] == "2")
+{
+    <!--==========================
+     Modal Listar Master
+    ============================-->
+    <section id="sectionListarMaster">
+        <div id="modalListarConsultas" class="modal animated fadeInUp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Área do Funcionário</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form" role="form" autocomplete="off" id="formListar">
+
+                            <div class="form-group">
+
+                                <label>Selecione a opção desejada:</label>
+                                <br>
+
+                                <select class="form-control" id="selectListar">
+                                    <option selected disabled="disabled" value="">Opções</option>
+                                    <option disabled="disabled">-</option>
+                                    <option value="listAll">Mostrar Todas as Consultas</option>
+                                    <option value="listFromDate">Mostrar Todos os Clientes</option>
+                                    <option value="listFromUser">Mostrar as Consultas de Hoje</option>
+                                </select>
+                            </div>
+
+                            <div id="listAll" class="listagemDeConsultas" style="display:none">
+                                @Html.Action("listaAllConsultas", "ListasMaster")
+
+                            </div>
+
+                            <div id="listFromDate" class="listagemDeConsultas" style="display:none">
+
+                                @Html.Action("listaAllClientes", "ListasMaster")
+
+                            </div>
+
+                            <div id="listFromUser" class="listagemDeConsultas" style="display:none">
+
+                                @Html.Action("listaHojeConsultas", "ListasMaster")
+
+                            </div>
+
+                            <br /><br />
+
+
+
+                            <br>
+                            <hr>
+                            <br>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+}
+
+    <!--==========================
+    Diferencial
+    ============================-->
+
+<section id="features" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Nosso Diferencial</h2>
+            <p class="separator"><i><b>Para todos os atletas,</b></i> de todos os tipos</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-block">
+                    <img src="~/Content/img/svg/sofa1.svg" alt="img" class="img-fluid sofa">
+                    <h4>Praticidade e Facilidade</h4>
+                    <p>Nunca foi tão fácil fazer o agendamento de uma consulta no conforto de sua casa </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-block">
+                    <img src="~/Content/img/svg/diploma.svg" alt="img" class="img-fluid diploma">
+                    <h4>Alta Especialização</h4>
+                    <p>Nossos profissionais possuem as melhores especializações no ramo da nutrição esportiva </p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-block">
+                    <img src="~/Content/img/balanca.png" alt="img" class="img-fluid balance">
+                    <h4>Equipamentos Modernos</h4>
+                    <p>Possuímos alta tecnologia para examinar e maximizar o desempenho de nossos atletas</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="feature-block">
+                    <img src="~/Content/img/svg/thumbsup.svg" alt="img" class="img-fluid">
+                    <h4> Garantimos sua Evolução</h4>
+                    <p> Insatisfeito? Não houve produção? <u>Reembolsamos metade do seus gastos conosco</u></p>
+                    <br />
+                    <a id="refundMore" class="false-href"><i>Saiba Mais</i></a>
+                    <div id="refundModal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i>Política de Reembolso</i></h3>
+                            </div>
+                            <div class="modal-body">
+                                <br />
+
+                                <h4 align="center">POLÍTICA DE REEMBOLSO</h4>
+                                <hr />
+                                <br />
+                                <p>1. Objetivo: Padronizar as atividades de reembolso de despesas para colaboradores em viagens a serviço, gastos com clientes e projetos em andamento.</p><br />
+
+                                <p>2. Abrangência: Todos os funcionários da Square Nutri</p><br />
+
+                                <p>
+                                    3. Definições:<br /><br /> <br />
+                                    <i><b>REEMBOLSO</b></i> - restituição de valor pago em função de uma despesa feita pelo funcionário em nome Square Nutri
+                                </p><br /> <br />
+
+                                <p>4.Descrição dos Procedimentos:</p><br /><br />
+
+                                <p><b>PREENCHIMENTO DO FORMULÁRIO FÍSICO ADQUIRIDO COM A GERÊNCIA: </b> </p><br /> <br />
+
+                                <p>4.1 O formulário deve ser preenchido com: nome, centro de custo, motivo da despesa, breve sumário de cada despesa, assinado pelo executor e aprovado conforme os limites estabelecidos; </p><br />
+
+                                <p>4.2 Anexar os comprovantes de cada valor gasto. Os comprovantes devem conter: a) Razão Social e CNPJ; b) Para refeições: relacionar no verso da nota o nome dos participantes, cargo, empresa e motivos; c) Demais notas: identificar os motivos e participantes, quando houver mais de uma pessoa envolvida no gasto. </p><br />
+
+                                <p>4.3 Separar as despesas feitas em Real e em outra moeda; </p><br />
+
+                                <p>4.4 Informar os valores recebidos como adiantamento, seja em Real ou outra moeda; </p><br />
+
+                                <p>4.5 Serão devolvidos ao requisitante os formulários: a) Rasurados; b) Sem explicação do motivo da despesa; c) Sem comprovante anexo; d) Sem as devidas aprovações.</p><br />  <br />
+
+                                <p>
+                                    <b>APROVAÇÃO</b>
+                                </p><br />  <br />
+
+                                <p>
+                                    4.6 Os funcionários devem colher as devidas aprovações de seus gestores.
+                                </p><br />
+
+                                <p>4.7 O Departamento Financeiro deve verificar se as assinaturas nos formulários estão de acordo com os gestores de cada área.</p><br />  <br />
+
+                                <p>
+                                    <b>REGRAS GERAIS</b>
+                                </p><br />
+
+                                <p>
+                                    4.8 As despesas devem ser realizadas estritamente com o objetivo de viabilizar a execução do trabalho ou a realização de um projeto (inclusive treinamento).
+                                </p><br />
+
+                                <p>4.9 A realização de despesas durante a execução de um trabalho deve ser norteada pela maior economia possível, uma vez que os mesmos representam custos para a operação. </p><br />
+
+                                <p>4.10 Os gastos a serem incorridos na realização de um trabalho devem obrigatoriamente seguir as regras estabelecidas neste procedimento. </p><br />
+
+                                <p>4.11 Eventuais exceções devem ser obrigatoriamente discutidas previamente com o CEO. </p><br />
+
+                                <p>4.12 Todas as solicitações de reembolso de despesa devem ser solicitadas utilizando-se o Square Nutri</p><br /><br />
+
+                                <p>
+                                    <b>POLÍTICA DE REEMBOLSO DE DESPESAS</b>
+                                </p><br />  <br />
+
+                                <p><b>Formulário de Requisição de Reembolso; </b></p><br />
+
+                                <p>4.13 Os comprovantes de despesas (Notas simplificadas e recibos) devem ter a indicação da Razão Social e do CNPJ da empresa. </p><br />
+
+                                <p>
+                                    4.14 Todas as solicitações de reembolso de despesas, devem ser solicitadas e entregues para o departamento Financeiro obedecendo os prazos a seguir: a) Entrega até o dia 05 (cinco) do Mês -Recebimento dia 10 (dez) do Mês; <br />
+                                    b) Entrega até o dia 15 (quinze) do Mês - Recebimento dia 20 (vinte) do Mês.
+                                </p><br />
+
+                                <p>4.15 Não são aceitas, sob nenhuma hipótese, prestações de contas com solicitação de reembolso de compras de equipamentos e material de escritório e outros itens que não estejam descritos neste procedimento; </p><br />
+
+                                <p>4.16 Todas as prestações de contas serão revisadas pelo departamento financeiro, caso estejam em desacordo com este procedimento não serão reembolsadas (mesmo que aprovadas); </p><br />
+
+                                <p>4.17 As despesas com cursos externos, inscrições em eventos, certificações nacionais e internacionais, devem ser aprovadas previamente pelo CEO.</p><br />  <br />
+
+                                <p>
+                                    <b>PERIODICIDADE </b>
+                                </p><br />  <br />
+
+                                <p>4.18 As prestações de contas devem ser elaboradas no mês em que as despesas são incorridas. </p><br />
+
+                                <p>4.19 O prazo para entrega das requisições é de até 02 (dois) dias após o gasto, ou retorno da viagem.</p><br />  <br />
+
+                                <p>
+
+                                    <br>
+                                    5 Referências
+                                </p><br />
+
+                                <p>
+                                    5.1 Formulários<br /><br />
+                                    • Solicitação de reembolso.
+                                </p><br />  <br />
+
+                                <p align=right>
+                                    Square Nutri<br />
+                                </p><br />  <br />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<!--==========================
+  Planos
+============================-->
+
+<section id="pricing" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+        <div class="section-title text-center">
+
+            <h2>Planos</h2>
+            <p class="separator"><i><b>Atinja seu potencial máximo</b></i> com nossos planos mensais</p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-lg-3"></div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="block-pricing">
+                    <div class="table">
+                        <h4>Square Personal</h4>
+                        <h2>R$549,90</h2>
+                        <ul class="list-unstyled">
+                            <li><b>30% de Desconto</b> nos produtos da loja</li>
+                            <li><b>Consultas Mensais</b> sem custo adicional</li>
+                            <li><b> Horários VIP Exclusivos</b></li>
+
+                        </ul>
+                        <div class="table_btn">
+                            @if ((string)Session["nivelLogado"] == "1")
+
+                            {
+                                <a class="btn" data-toggle="modal" data-target="#modalPlanos"><i class="fa fa-shopping-cart"></i> Assinar</a>
+                            }
+
+                            else if ((string)Session["nivelLogado"] == "2")
+                            {
+                                <a class="btn btn-denied"><i class="fa fa-shopping-cart"></i> Apenas para clientes</a>
+                            }
+                            else
+                            {
+                                <a class="btn" data-toggle="modal" data-target="#modalLoginForm"><i class="fa fa-shopping-cart"></i> Assinar</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-6 col-lg-3">
+                <div class="block-pricing">
+                    <div class="table">
+                        <h4>Square Premium</h4>
+                        <h2>R$899,90</h2>
+                        <ul class="list-unstyled">
+                            <li><b>60% de Desconto</b> nos produtos da loja</li>
+                            <li><b>Consultas Semanais</b> sem custo adicional</li>
+                            <li><b> Horários VIP Exclusivos</b></li>
+                            <li><b>Contato Pessoal</b> do Nutricionista</li>
+                            <li><b>Convites e brindes exclusivos </b>de nossos parceiros licenciados</li>
+                        </ul>
+                        <div class="table_btn">
+                            @if ((string)Session["nivelLogado"] == "1")
+                            {
+                                <a class="btn" data-toggle="modal" data-target="#modalPlanos"><i class="fa fa-shopping-cart"></i> Assinar</a>
+                            }
+
+                            else if ((string)Session["nivelLogado"] == "2")
+                            {
+                                <a class="btn btn-denied"><i class="fa fa-shopping-cart"></i> Apenas para clientes</a>
+                            }
+
+                            else
+                            {
+                                <a class="btn" data-toggle="modal" data-target="#modalLoginForm"><i class="fa fa-shopping-cart"></i> Assinar</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--==========================
+      Modal do Plano
+    ============================-->
+
+    <div class="modal animated fadeInUp" id="modalPlanos" tabindex="-1" role="dialog" aria-labelledby="consultaPlanosTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="consultaPlanosTitle">Assinar um Plano</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+
+                </div>
+                <div class="modal-body">
+
+                    @using (Html.BeginForm("Index", "Planos", FormMethod.Post, new { @class = "form", id = "formPlanos", role = "form", autocomplete = "off" }))
+                    {
+
+
+                        <div class="form-group align-to-center">
+                            <h3>
+                                <label for="selectPlano">
+                                    Selecione o plano a ser assinado: <button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                              data-placement="top" data-animation="true" data-content="As vantagens mudam conforme o plano. ">
+                                        <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                    </button>
+                                </label>
+                            </h3>
+
+
+                            @Html.DropDownList("planoCliente", new List<SelectListItem>
+                                    {
+                                        new SelectListItem{ Text = "Planos", Disabled = true , Selected = true},
+                                        new SelectListItem{ Text = "-", Disabled = true},
+                                        new SelectListItem{ Text = "Square Personal", Value = "Square Personal" },
+                                        new SelectListItem{ Text = "Square Premium", Value = "Square Premium" },
+
+                                    }
+                                        , new {@class="form-control", id="selectPlano", required="required"})
+
+
+
+                        </div>
+
+                        <div class="showPlanos" style="display:none">
+
+
+
+                            <br><hr><br>
+
+                            <div class="form-group pagForm">
+                                <h3><label>Pagamento da Assinatura </label></h3>
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+                        <div class="form" role="form" autocomplete="off" id="formCartaoPlano" style="display:none">
+                            <div class="form-group">
+
+                                <label for="titulCart">Titular do Cartão</label>
+                                <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formPlanos" name="titulCart" id="titulCart" placeholder="MARCO L PEIXOTO" required>
+                                <div class="invalid-feedback">Por favor insira o nome do titular do cartão.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cartao-seg">Número do Cartão</label>
+                                <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formPlanos" name="numCart" id="cartao-seg" placeholder="5417 6723 6297 6468" required>
+                                <div class="invalid-feedback">Por favor insira o número do cartão.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cod-seg">Código de Segurança</label>
+                                <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formPlanos" name="codCart" id="cod-seg" placeholder="482" required>
+                                <div class="invalid-feedback">Por favor insira o código de segurança do cartão.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dataCart">Data de Validade</label>
+                                <input type="text" class="form-control form-control-lg form-control-border-transition cartaoPag" form="formPlanos" name="dataCart" id="txt-data" placeholder="13/12/2021" required>
+                                <div class="invalid-feedback">Por favor insira a data de validade do cartão.</div>
+                            </div>
+
+                            <br>
+
+                            <span class="planoPersonal" id="planoValue" style="display:none"><h3><b><i>Valor da assinatura mensal:</i></b> R$549,90</h3></span>
+                            <span class="planoPremium" id="planoValue" style="display:none"><h3><b><i>Valor da assinatura mensal:</i></b> R$899,90</h3></span>
+                            <br>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                            <button type="submit" id="btnAssinarPlano" class="btn btn-success btn-lg">Assinar Plano</button>
+
+
+                        </div>
+                    }
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+</section>
+
+<!--==========================
+  Atletas
+============================-->
+
+<section id="testimonials" class="padd-section text-center wow fadeInUp">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="testimonials-content">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <div id="carouselFade" class="carousel slide carousel-fade" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+
+                                <div class="carousel-item active">
+                                    <div class="top-top">
+
+                                        <h2>Recomendo para novos atletas</h2>
+                                        <p>"Em certo ponto da minha carreira vi a necessidade de acompanhar melhor minha nutrição e desenvolvimento. Busquei a melhor opção para mim, e assim conheci a Square Nutri. Com certeza recomendo para novos atletas em busca de um acompanhamento de qualidade."</p>
+                                        <h4><a target="_blank" href="http://www.cbj.com.br/atletas/1/mayra-aguiar-da-silva.html">Mayra Aguiar</a><span>Campeã mundial e medalhista olímpica de Judô</span></h4>
+
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="top-top">
+
+                                        <h2>Foi perfeito pra mim</h2>
+                                        <p>"Passei muito tempo me preocupando com técnicas marciais e acabei despreocupando totalmente em relação a minha alimentação. Quebrei a cara ao passar em minha primeira consulta na Square Nutri, mas posteriormente isso foi perfeito pra mim e pro meu crescimento esportivo. "</p>
+                                        <h4><a target="_blank" href="https://pt.wikipedia.org/wiki/Lyoto_Machida">Lyoto Machida</a><span>Lutador brasileiro de MMA e Karatê</span></h4>
+
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <div class="top-top">
+
+                                        <h2>Impulsionou meu desempenho</h2>
+                                        <p>"A clínica que impulsionou meu desempenho e me colocou no caminho certo definitivamente foi a Square Nutri. Sem vocês eu não chegaria onde cheguei nem conquistaria o que consegui conquistar no mundo da natação! Só tenho elogios e agradecimentos a fazer."</p>
+                                        <h4><a target="_blank" href="https://swimchannel.net/atleta/etiene-medeiros/">Etiene Medeiros</a><span>Primeira nadadora brasileira medalhista de Ouro</span></h4>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="btm-btm">
+
+                                <ul class="list-unstyled carousel-indicators">
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!--==========================
+  Nossa Equipe
+============================-->
+<section id="team" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+        <div class="section-title text-center">
+
+            <h2>Nutricionistas</h2>
+            <p class="separator"></p>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/1.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Geral</i></span>
+                        <h4>Caio Bürgmann</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/2.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Atletismo</i></span>
+                        <h4>Mariana Azevedo</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/3.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Artes Marciais/Boxe</i></span>
+                        <h4>Bruno Pereira</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/4.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Ciclismo</i></span>
+                        <h4>Juliana Campos </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/5.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Surfe/Tênis</i></span>
+                        <h4>Alessandra Brandão</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/6.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Vôlei/Handebol</i></span>
+                        <h4> Daniela Souza </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/7.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Futebol/Basquete</i></span>
+                        <h4>Felipe Gomes </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-4 col-lg-3">
+                <div class="team-block bottom">
+                    <img src="~/Content/img/team/8.jpg" class="img-responsive" alt="img">
+                    <div class="team-content">
+                        <ul class="list-unstyled">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                        <span>Nutricionista</span> <br>
+                        <span><i>Natação</i></span>
+                        <h4>Heloísa Leite </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!--==========================
+  Newsletter
+============================-->
+<section id="newsletter" class="newsletter text-center wow fadeInUp">
+    <div class="overlay padd-section">
+        <h6><i>Que tal assinar nossa newsletter?</i></h6>
+        <br>
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-md-9 col-lg-6">
+
+                    <form name="formNewsletter" class="form-inline" action="#" onsubmit="return newsletterMsg();">
+
+                        <input type="email" class="form-control" id="inputNews" placeholder="Seu Email" name="email">
+                        <button class="btn btn-default" type="submit" value="register"><i class="fa fa-envelope" aria-hidden="true"></i>Inscrever-se</button>
+
+                    </form>
+                    <br>
+                    <p class="legal"><i>Ao inserir seu email no campo acima, você concorda com os termos da @Html.ActionLink("Política de Privacidade", "wp-content/politica-square-nutri.pdf", "Content", new { target = "_blank" }, null) em relação a nossa newsletter.</i></p>
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+<!--==========================
+  Contato
+============================-->
+<section id="contact" class="padd-section wow fadeInUp">
+
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>Contato</h2>
+            <p class="separator">Dúvidas? Sugestões? Críticas? Fale conosco!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-3 col-md-4">
+
+                <div class="info">
+                    <div>
+                        <i class="fa fa-map-marker"></i>
+                        <p>Avenida Paulista, 2073<br>São Paulo, SP 01311-940</p>
+                    </div>
+
+                    <div class="email">
+                        <i class="fa fa-envelope"></i>
+                        <p>contato@squarenutri.com</p>
+                    </div>
+
+                    <div>
+                        <i class="fa fa-phone"></i>
+                        <p><b>Fixo:</b> 2880-6913 | <b>Whatsapp:</b> +55 11 94698-2309</p>
+
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 col-md-8">
+                <div class="form">
+                    <div id="sendmessage">Sua mensagem foi enviada com sucesso!</div>
+                    <div id="errormessage"></div>
+                    <form action="" method="post" role="form" class="contactForm" onsubmit="contatoMsg()">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Nome" data-rule="minlen:4" data-msg="Digite no mínimo 4 caracteres." />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor insira um email válido." />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Digite no mínimo 8 caracteres." />
+                            <div class="validation"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Por favor escreva algo!" placeholder="Mensagem"></textarea>
+                            <div class="validation"></div>
+                        </div>
+                        <div class="text-center"><button type="submit"><i class="fa fa-paper-plane"></i> Enviar</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

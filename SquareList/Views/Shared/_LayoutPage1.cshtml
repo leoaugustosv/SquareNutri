@@ -1,0 +1,350 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Square Nutri</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="~/Content/~/Content/img/squarenutri0.png" rel="icon">
+    <link href="~/Content/~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonte -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="~/Content/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Content/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="~/Content/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="~/Content/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
+
+    <!-- CSS Principal -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header id="header" class="header header-hide">
+        <div class="container">
+
+            <div id="logo" class="pull-left">
+                <h1><a href="#body" class="scrollto"><span>Square</span> Nutri</a></h1>
+
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#hero">Home</a></li>
+                    <li><a href="#get-started">Consultas</a></li>
+                    <li><a href="#features">Diferencial</a></li>
+                    <li><a href="#pricing">Planos</a></li>
+                    <li><a href="#testimonials">Atletas</a></li>
+                    <li><a href="#team">Nutricionistas</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                    @if ((string)Session["nivelLogado"] == "1")
+                    {
+                        <li class="menu-has-children">
+                            <a href="">Bem-vindo, @Session["nomeLogado"]!</a>
+                            <ul>
+                                <li><a class="dropdown-item hoverDrop" data-toggle="modal" data-target="#modalDados"><i class="fa fa-pencil-square-o fa-fw"></i> Meus Dados</a></li>
+                                <li><a class="dropdown-item hoverDrop" data-toggle="modal" data-target="#modalListarMinhasConsultas"><i class="fa fa-list-ul fa-fw"></i> Minhas Consultas</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("Sair", "Logout", "Login" ,null, null)</li>
+
+                    }
+                    else if ((string)Session["nivelLogado"] == "2")
+                    {
+                        <li class="menu-has-children">
+                            <a href="">Área do Funcionário</a>
+                            <ul>
+                                <li><a class="dropdown-item hoverDrop" data-toggle="modal" data-target="#modalListarConsultas"><i class="fa fa-cogs fa-fw"></i> Gerenciar Dados</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("Sair", "Logout", "Login", null, null)</li>
+
+                    }
+                    else
+                    {
+                        <li class="menu-has-children">
+                            <a href="">Fazer Login</a>
+                            <ul>
+                                <li><a class="dropdown-item hoverDrop" data-toggle="modal" data-target="#modalLoginForm"> <i class="fa fa-sign-in fa-fw"></i> Entrar</a></li>
+                                <li><a class="dropdown-item hoverDrop" data-toggle="modal" data-target="#modalRegisterForm"> <i class="fa fa-user-plus fa-fw"></i> Registrar-se</a></li>
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Login Modal
+     ============================-->
+
+    <section id="sectionAccount">
+        <div id="modalLoginForm" class="modal animated fadeIn" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Login</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+
+                        @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "form", id = "formLogin", role = "form", autocomplete = "off" }))
+                        {
+                            <div class="form-group">
+                                <h4><a data-dismiss="modal" data-toggle="modal" data-target="#modalRegisterForm" class="false-href float-right">Novo na Square Nutri? Crie sua conta!</a></h4>
+                                <br>
+                                <label for="uname1">E-mail</label>
+                                @Html.TextBox("emailCli", null, new { @class = "form-control form-control-lg form-control-border-transition", autocomplete = "on", @type = "email", id = "email", required = "required" })
+                                <div class="invalid-feedback">Por favor insira seu e-mail.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Senha</label>
+                                @Html.TextBox("senhaCli", null, new { @class = "pw form-control form-control-lg form-control-border-transition", id = "pwd1", required = "required" })
+                                <div class="invalid-feedback">Por favor insira sua senha.</div>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input form-control-border-transition" id="agreeLogin" required>
+                                <label class="custom-control-label hoverGlobal" for="agreeLogin">Ao logar em sua conta você concorda com nossa política de <b>@Html.ActionLink("uso de cookies", "wp-content/cookies-square-nutri.pdf", "Content", new { target = "_blank" }, null)</b>.</label>
+                            </div>
+                            <div class="form-group py-4">
+                                <button type="submit" class="btn btn-success btn-lg" id="btnLogin">Entrar <i class="fa fa-sign-in"></i></button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--==========================
+         Register Modal
+        ============================-->
+
+        <div id="modalRegisterForm" class="modal animated fadeIn" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Cadastro</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form", name = "uname1", id = "formRegister", role = "form", autocomplete = "off" }))
+                        {
+                            <div class="form-group">
+                                <h4><a data-dismiss="modal" data-toggle="modal" data-target="#modalLoginForm" class="false-href float-right">Já tem uma conta? Logue-se agora!</a></h4>
+                                <br>
+
+                                <label for="uname1">Nome</label>
+                                @Html.TextBox("nomeCli", null, new { @class = "form-control form-control-lg form-control-border-transition", name = "uname1", id = "uname1", placeholder = "Marco", required = "required" })
+                                @Html.ValidationMessage("nomeCli", null, new { @class = "error" })
+                                <div class="invalid-feedback">Por favor insira seu primeiro nome.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="uname1">Sobrenome</label>
+                                @Html.TextBox("sobrenomeCli", null, new { @class = "form-control form-control-lg form-control-border-transition", name = "uname2", id = "uname2", placeholder = "Lima Peixoto", required = "required" })
+                                @Html.ValidationMessage("sobrenomeCli", null, new { @class = "error" })
+                                <div class="invalid-feedback">Por favor insira seu sobrenome.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Telefone/Celular</label>
+                                @Html.TextBox("telCli", null, new { @class = "form-control form-control-lg form-control-border-transition", name = "fone", id = "fone", placeholder = "(11) 99837-7312", required = "required" })
+                                <div class="invalid-feedback">Por favor insira um número de telefone ou de celular.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>CPF</label>
+                                @Html.TextBox("cpfCli", null, new { @class = "form-control form-control-lg form-control-border-transition", id = "cpf", placeholder = "123.456.789-12", required = "required" })
+                                @Html.ValidationMessage("cpfCli", null, new { @class = "error" })
+                                <div class="invalid-feedback">Por favor insira seu CPF.</div>
+                            </div>
+
+                            <label>Sexo</label>
+                            <br>
+                            <div class="custom-control custom-radio custom-control-inline">
+
+                                @Html.RadioButton("sexoCli", "Masculino", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "Masculino", required = "required" })
+                                @Html.Label("Masculino", "Masculino", new { @class = "custom-control-label hoverGlobal" })
+                            </div>
+
+                            <div class="custom-control custom-radio custom-control-inline">
+                                @Html.RadioButton("sexoCli", "Feminino", new { @class = "custom-control-input form-control-gray hoverGlobal", id = "Feminino" })
+                                @Html.Label("Feminino", "Feminino", new { @class = "custom-control-label hoverGlobal" })
+                            </div>
+                            <br /><br />
+
+                            <div class="form-group">
+                                <label>Endereço</label>
+                                @Html.TextBox("endCli", null, new { @class = "form-control form-control-lg form-control-border-transition", id = "endereco", placeholder = "Rua dos Horticultores, 312", required = "required" })
+                                <div class="invalid-feedback">Por favor insira seu endereço.</div>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input form-control-border-transition hover" id="checkCompl" onclick="showBox(this)">
+                                <label class="custom-control-label hoverGlobal" for="checkCompl">Tenho um complemento!</label><button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                                                                                                      data-placement="top" data-animation="true" data-content="Marque a caixa caso necessite <b>informar detalhes adicionais</b><br>(<i>número do apartamento, bloco, etc</i>).">
+                                    <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                </button>
+
+                                <script type="text/javascript">
+
+                                    function showBox(compl) {
+                                        document.getElementById("complemento").style.display = compl.checked ? "block" : "none";
+                                        return '<br><br>';
+                                    }
+
+
+                                </script>
+                            </div>
+                            <br>
+                            @*<input type="text" class="form-control form-control-lg form-control-border-transition" name="complemento" id="complemento" style="display:none" placeholder="Apto. 663">*@
+                            @Html.TextBox("complCli", null, new { @class = "form-control form-control-lg form-control-border-transition", style = "display:none", name = "complemento", id = "complemento", placeholder = "Apto. 663" })
+                            <hr>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                @Html.TextBox("emailCli", null, new { @class = "form-control form-control-lg form-control-border-transition", @type = "email", id = "email", placeholder = "marcolima@hotmail.com", required = "required" })
+
+                                <div class="invalid-feedback">Por favor insira seu email.</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Senha</label><button type="button" class="btn-link info-button" style="background-color:transparent; border: 0;" data-toggle="popover-hover"
+                                                            data-placement="top" data-animation="true" data-content="No <b>mínimo 8 caracteres.</b>">
+                                    <img src="~/Content/img/svg/info.svg" alt="img" class="img-fluid infosvg">
+                                </button>
+                                @Html.TextBox("senhaCli", null, new { @class = "pw form-control form-control-lg form-control-border-transition", id = "pwd1", required = "required" })
+                                <div class="invalid-feedback">Por favor insira sua senha.</div>
+                            </div>
+
+                            <br>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input form-control-border-transition" id="agreeRegister" required>
+                                <label class="custom-control-label hoverGlobal" for="agreeRegister">
+                                    Concordo com os <b>@Html.ActionLink("termos de serviço", "wp-content/politica-square-nutri.pdf", "Content", new { target = "_blank" }, null)</b> e a <b>@Html.ActionLink("política de privacidade", "wp-content/politica-square-nutri.pdf", "Content", new { target = "_blank" }, null)</b> da Square Nutri.
+                                </label>
+
+                            </div>
+
+                            <div class="form-group py-4">
+                                <button type="submit" class="btn btn-success btn-lg" id="btnRegister">Cadastrar</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    @RenderBody()
+
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer class="footer">
+        <div class="container">
+            <div class="row align-items-start">
+
+                <div class="col-md-12 col-lg-4">
+                    <div class="footer-logo">
+
+                        <a class="navbar-brand" href="#hero">Square Nutri</a>
+                        <p>
+                            Uma clínica de nutrição esportiva sempre em evolução com o atleta. Criada em 2010, já possui uma bela história e grande nome construídos através
+                            de um árduo trabalho seguido de estudo, dedicação, força de vontade e paixão pela nutrição.
+                        </p>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col">
+                    <div class="list-menu">
+
+                        <div class="copyrights">
+                            <div class="container square-credit footer-logo">
+                                <p>Square Nutri &copy; 2019  - Todos os direitos reservados.</p>
+                                <div class="credits">
+
+                                    <!-- Front-End modelado a partir do template eStartup -->
+                                    <span class="footer-credit">Desenvolvido por <a href="#"></span><b>Boolean.Corp</b></a>
+                                    <br /> <br />
+                                    <ul class="list-unstyled footer-credit underCopy">
+                                        @Html.ActionLink("Termos de Uso", "wp-content/politica-square-nutri.pdf", "Content", new { target = "_blank" }, null) -
+                                        @Html.ActionLink("Política de Privacidade", "wp-content/politica-square-nutri.pdf", "Content", new { target = "_blank" }, null) -
+                                        @Html.ActionLink("Uso de Cookies", "wp-content/cookies-square-nutri.pdf", "Content", new { target = "_blank" }, null)
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </footer>
+
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script language="JavaScript" type="text/javascript" src="~/Content/lib/jquery/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/Content/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Content/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/lib/superfish/hoverIntent.js"></script>
+    <script src="~/Content/lib/superfish/superfish.min.js"></script>
+    <script src="~/Content/lib/easing/easing.min.js"></script>
+    <script src="~/Content/lib/modal-video/js/modal-video.js"></script>
+    <script src="~/Content/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/Content/lib/wow/wow.min.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="~/Content/contactform/contactform.js"></script>
+
+    <!-- Jquery Mask -->
+    <script src="~/Content/lib/jquery-mask/src/jquery.mask.js"></script>
+
+    <!-- Main Javascript File -->
+    <script src="~/Content/js/main.js"></script>
+
+
+
+
+</body>
+</html>
+
+

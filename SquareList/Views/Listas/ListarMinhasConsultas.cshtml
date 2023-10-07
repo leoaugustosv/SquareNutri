@@ -1,0 +1,62 @@
+﻿
+
+@model IEnumerable<SquareList.Models.Consulta>
+
+@{
+    /**/
+
+    ViewBag.Title = "ListarMinhasConsultas";
+    Layout = null;
+}
+
+<h3 align="center">Data de Hoje: @DateTime.Now.ToString("dd/MM/yyyy")</h3>
+<hr />
+
+@if (ViewData["consultas"] == null)
+{
+    <br />
+    <h3 align="center">Nenhuma consulta foi encontrada.</h3>
+    <br /><br />
+}
+
+else
+{
+
+    <style type="text/css">
+        .table .thead-light th {
+            background-color: #71c55d;
+        }
+    </style>
+
+    <table class="table table-striped table-hover" align="center">
+        <thead class="thead-light">
+            <tr>
+                <th class="tg-0lax">Código</th>
+                <th class="tg-0lax">Nome do Nutricionista</th>
+                <th class="tg-0lax">Especialidade</th>
+                <th class="tg-0lax">Data da Consulta</th>
+                <th class="tg-0lax">Horário</th>
+            </tr>
+
+
+            @foreach (var variavel in Model)
+            {
+
+                <tr>
+                    <td class="tg-baqh">@variavel.codConsulta</td>
+                    <td class="tg-0lax">@variavel.nomeNutricionista </td>
+                    <td class="tg-0lax">@variavel.especialidadeNutri</td>
+                    <td class="tg-baqh">@variavel.dataConsulta.Date.ToString("dd/MM/yyyy")</td>
+                    <td class="tg-baqh">@variavel.horaConsulta</td>
+
+                </tr>
+
+
+            }
+
+
+    </table>
+    
+    <br />
+}
+
